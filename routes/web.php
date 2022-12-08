@@ -15,10 +15,8 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    $posts = Post::all();
-    ddd($posts);
     return view('posts', [
-        'posts' => $posts
+        'posts' => Post::all()
     ]);
 });
 
