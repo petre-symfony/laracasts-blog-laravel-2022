@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class Post {
     public static function find($slug) {
         if (! file_exists($path = resource_path("posts/{$slug}.html"))){
-            return redirect('/');
+            throw new ModelNotFoundException();
         }
 
         return cache()->remember("posts.{$slug}", now()->addHours(2), fn() => file_get_contents($path));
