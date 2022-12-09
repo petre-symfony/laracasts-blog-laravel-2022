@@ -22,11 +22,7 @@ class Post {
     }
 
     public static function find($slug) {
-        if (! file_exists($path = resource_path("posts/{$slug}.html"))){
-            throw new ModelNotFoundException();
-        }
-
-        return cache()->remember("posts.{$slug}", now()->addHours(2), fn() => file_get_contents($path));
+        return static::all()->firstWhere('slug', $slug);
     }
 
     public static function all() {
