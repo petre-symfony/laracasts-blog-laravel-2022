@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<title>My Blog</title>
-<link rel="stylesheet" href="/app.css">
+@extends('layout')
 
-<body>
+@section('content')
     @foreach ($posts as $post)
         <article class="{{ $loop->even ? 'mb-6' : '' }}">
             <h1>
@@ -16,4 +14,4 @@
             </div>
         </article>
     @endforeach
-</body>
+@endsection
