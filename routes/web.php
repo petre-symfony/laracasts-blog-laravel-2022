@@ -17,7 +17,7 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('posts', [
-        'posts' => Post::latest()
+        'posts' => Post::latest()->get()
     ]);
 });
 
