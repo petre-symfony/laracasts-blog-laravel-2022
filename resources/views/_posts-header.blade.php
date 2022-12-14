@@ -40,7 +40,7 @@
                     @endforeach
                 </div>
             </div>
-            
+
         </div>
 
         <!-- Other Filters -->
