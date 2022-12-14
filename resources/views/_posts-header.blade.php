@@ -17,7 +17,7 @@
             <div x-data="{ show: false }">
                 <button @click="show = !show" class="py-2 pl-3 pr-9 text-sm font-semibold w-32 text-left">ABC</button>
 
-                <div x-show="show" class="py-2 absolute bg-gray-100 w-full mt-2 z-50">
+                <div x-show="show" class="py-2 absolute bg-gray-100 w-full mt-2 z-50" style="display: none">
                     <a href="" class="block text-left px-3 text-sm leading-6 hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white">One</a>
                     <a href="" class="block text-left px-3 text-sm leading-6 hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white">Two</a>
                     <a href="" class="block text-left px-3 text-sm leading-6 hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white">A Longer Link</a>
