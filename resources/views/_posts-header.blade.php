@@ -22,7 +22,7 @@
                         {{ isset($currentCategory) ? ucwords($currentCategory->name) : 'Categories' }}
 
 
-                        <x-down-arrow class="absolute pointer-events-none" style="right: 12px"></x-down-arrow>
+                        <x-icon name="down-arrow" class="absolute pointer-events-none" style="right: 12px"></x-icon>
                     </button>
                 </x-slot>
 
