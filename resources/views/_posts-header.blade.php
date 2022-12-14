@@ -15,7 +15,7 @@
         <!--  Category -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
             <div x-data="{ show: false }">
-                <button>Categories</button>
+                <button @click="show = !show">Categories</button>
 
                 <div x-show="show">
                     <a href="">One</a>
