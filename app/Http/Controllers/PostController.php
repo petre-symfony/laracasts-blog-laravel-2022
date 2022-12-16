@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller {
    public function index(){
-
+       dd(request('search'));
        return view('posts', [
-           'posts' => $this->getPosts(),
+           'posts' => Post::latest()->filter(request('search'))->get(),
            'categories' => Category::all()
        ]);
    }
@@ -19,9 +19,5 @@ class PostController extends Controller {
        return view('post', [
            'post' => $post
        ]);
-   }
-
-   protected function getPosts(){
-       return Post::latest()->filter()->get();;
    }
 }
