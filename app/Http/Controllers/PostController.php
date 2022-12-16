@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller {
    public function index(){
-       dd(request('search'));
+       dd(request(['search']));
        return view('posts', [
            'posts' => Post::latest()->filter(request('search'))->get(),
            'categories' => Category::all()
