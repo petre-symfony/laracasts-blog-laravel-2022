@@ -19,6 +19,15 @@ class Post extends Model
                 ->orWhere('body', 'like', '%' . $search . '%')
         );
 
+        $query->when($filters['category'] ?? false, fn($query, $category) =>
+        $query
+            ->whereExists(fn($query) =>
+            $query->from('categories')
+                ->where('categories.id', 'posts.category_id')
+                ->where('categories.slug', $category)
+            )
+        );
+
     }
 
     public function category(){
