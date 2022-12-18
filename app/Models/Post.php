@@ -23,7 +23,7 @@ class Post extends Model
         $query
             ->whereExists(fn($query) =>
             $query->from('categories')
-                ->where('categories.id', 'posts.category_id')
+                ->whereColumn('categories.id', 'posts.category_id')
                 ->where('categories.slug', $category)
             )
         );
