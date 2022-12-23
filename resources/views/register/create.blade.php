@@ -10,7 +10,13 @@
                         Name
                     </label>
 
-                    <input type="text" class="border border-gray-400 p-2 w-full" name="name" id="name">
+                    <input
+                        type="text"
+                        class="border border-gray-400 p-2 w-full"
+                        name="name"
+                        id="name"
+                        value="{{ old('name') }}"
+                    >
                 </div>
 
                 <div class="mb-6">
@@ -18,7 +24,13 @@
                         Username
                     </label>
 
-                    <input type="text" class="border border-gray-400 p-2 w-full" name="username" id="username">
+                    <input
+                        type="text"
+                        class="border border-gray-400 p-2 w-full"
+                        name="username"
+                        id="username"
+                        value="{{ old('username') }}"
+                    >
 
                     @error('username')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -30,7 +42,13 @@
                         Email
                     </label>
 
-                    <input type="email" class="border border-gray-400 p-2 w-full" name="email" id="email">
+                    <input
+                        type="email"
+                        class="border border-gray-400 p-2 w-full"
+                        name="email"
+                        id="email"
+                        value="{{ old('email') }}"
+                    >
                 </div>
 
                 <div class="mb-6">
