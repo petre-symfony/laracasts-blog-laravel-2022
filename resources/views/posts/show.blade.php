@@ -50,6 +50,32 @@
                         {!! $post->body !!}
                     </div>
                 </div>
+
+                <section class="col-span-8 col-start-5 mt-10">
+                    <article class="flex bg-gray-100 border border-gray-200 p-6 rounded-xl">
+                        <div>
+                            <img src="https://i.pravatar.cc/100" alt="">
+                        </div>
+                        <div>
+                            <header>
+                                <h3 class="font-bold">John Doe</h3>
+                                <p class="text-xs">
+                                    Posted
+                                    <time>a month ago</time>
+                                </p>
+                            </header>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Blanditiis corporis dolores, possimus quibusdam veritatis
+                                voluptates voluptatum! Aliquam animi aperiam aut, autem,
+                                dolores earum harum illo ipsum libero minus molestias nam
+                                nesciunt nostrum obcaecati quaerat qui rem tempora vitae
+                                voluptate voluptatibus.
+                            </p>
+                        </div>
+                    </article>
+                </section>
             </article>
         </main>
     </section>
