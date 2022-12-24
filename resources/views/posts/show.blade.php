@@ -52,9 +52,9 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10">
-                    <article class="flex bg-gray-100 border border-gray-200 p-6 rounded-xl">
-                        <div>
-                            <img src="https://i.pravatar.cc/100" alt="">
+                    <article class="flex bg-gray-100 border border-gray-200 p-6 rounded-xl space-x-4">
+                        <div class="flex-shrink-0">
+                            <img src="https://i.pravatar.cc/100" alt="" width="60" heught="60">
                         </div>
                         <div>
                             <header>
