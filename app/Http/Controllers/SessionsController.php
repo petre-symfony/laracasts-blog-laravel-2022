@@ -19,6 +19,9 @@ class SessionsController extends Controller {
         // attempt to authenticate and log in the user
         // based on the provided credentials
         if (auth()->attempt($attributes)){
+            //session fixation
+            session()->regenerate();
+
             return redirect('/')->with('success', 'Welcome Back!');
         }
 
