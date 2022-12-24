@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller {
     public function create(){
@@ -22,9 +23,10 @@ class SessionsController extends Controller {
         }
 
         // auth failed
-        return back()
+        throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified.']);
+        /*return back()
             ->withInput()
-            ->withErrors(['email' => 'Your provided credentials could not be verified.']);
+            ->withErrors(['email' => 'Your provided credentials could not be verified.']);*/
     }
 
     public function destroy(){
