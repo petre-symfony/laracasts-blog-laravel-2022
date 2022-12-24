@@ -13,15 +13,10 @@ return new class extends Migration {
     public function up() {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->text('body');
             $table->timestamps();
-
-            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
-            /*
-            $table->unsignedBigInteger('post_id');
-            $table->foreign('post_id')->references('id')->on('posts')->cascadeOnDelete();
-            */
         });
     }
 
