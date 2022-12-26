@@ -29,8 +29,8 @@ Route::get('ping', function(){
         'server' => 'us21'
     ]);
 
-    $response = $mailchimp->ping->get();
-    print_r($response);
+    $response = $mailchimp->lists->getAllLists();
+    var_dump($response);
 });
 
 Route::get('/', [PostController::class, 'index'])->name('home');
