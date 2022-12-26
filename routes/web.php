@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PostCommentsController;
+use App\Services\Newsletter;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,18 +24,10 @@ use App\Http\Controllers\PostCommentsController;
 Route::post('newsletter', function(){
     request()->validate(['email' => 'required|email']);
 
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-
-    $mailchimp->setConfig([
-        'apiKey' => config('services.mailchimp.key'),
-        'server' => 'us21'
-    ]);
-
     try {
-        $mailchimp->lists->addListMember('49393ad7f3', [
-            'email_address' => request('email'),
-            'status' => 'subscribed'
-        ]);
+        $newsletter = new Newsletter();
+
+        $newsletter->subscribe(request('email'));
     } catch(\Exception $e) {
         \Illuminate\Validation\ValidationException::withMessages([
             'email' => 'This email could not be added to our newsletter list'
