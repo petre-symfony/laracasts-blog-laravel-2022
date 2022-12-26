@@ -29,7 +29,7 @@ Route::get('ping', function(){
         'server' => 'us21'
     ]);
 
-    $response = $mailchimp->lists->getAllLists();
+    $response = $mailchimp->lists->getList('49393ad7f3');
     var_dump($response);
 });
 
