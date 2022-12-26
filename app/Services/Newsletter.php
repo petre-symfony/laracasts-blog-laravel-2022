@@ -5,7 +5,9 @@ namespace App\Services;
 use MailchimpMarketing\ApiClient;
 
 class Newsletter {
-    public function subscribe(String $email){
+    public function subscribe(String $email, String $list = null){
+        $list ??= config('services.mailchimp.lists.subscribers');
+
         $mailchimp = new ApiClient();
 
         $mailchimp->setConfig([
@@ -13,7 +15,7 @@ class Newsletter {
             'server' => 'us21'
         ]);
 
-        return $mailchimp->lists->addListMember('49393ad7f3', [
+        return $mailchimp->lists->addListMember($list, [
             'email_address' => $email,
             'status' => 'subscribed'
         ]);
