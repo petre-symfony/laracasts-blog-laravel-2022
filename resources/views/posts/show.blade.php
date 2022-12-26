@@ -71,8 +71,12 @@
                                         id="body"
                                         class="w-full focus:outline-none focus:ring"
                                         placeholder="Quick, think of something to say"
-                                        cols="30" rows="5"
+                                        cols="30" rows="5" required
                                     ></textarea>
+
+                                    @error('body')
+                                        <span class="text-sm text-red">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div
                                     class="flex justify-end mt-6 pt-6 border-t
