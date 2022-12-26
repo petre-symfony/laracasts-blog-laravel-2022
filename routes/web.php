@@ -29,7 +29,10 @@ Route::get('ping', function(){
         'server' => 'us21'
     ]);
 
-    $response = $mailchimp->lists->getListMembersInfo('49393ad7f3');
+    $response = $mailchimp->lists->addListMember('49393ad7f3', [
+        'email_address' => 'petre_ro@yahoo.com',
+        'status' => 'subscribed'
+    ]);
     var_dump($response);
 });
 
