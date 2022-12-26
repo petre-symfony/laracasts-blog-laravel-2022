@@ -54,7 +54,7 @@
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
                     <x-panel>
                         <form
-                            action=""
+                            action="/posts/{{ $post->slug }}/comments"
                             method="post"
                         >
                             @csrf
