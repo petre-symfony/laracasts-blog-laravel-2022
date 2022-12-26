@@ -15,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->bind('foo', function(){
+            return 'bar';
+        });
     }
 
     /**
