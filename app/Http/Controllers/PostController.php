@@ -31,6 +31,7 @@ class PostController extends Controller {
    }
 
    public function store(){
+       ddd(request()->file('thumbnail'));
        $attributes = request()->validate([
            'title' => 'required',
            'slug' => ['required', Rule::unique('posts', 'slug')],
