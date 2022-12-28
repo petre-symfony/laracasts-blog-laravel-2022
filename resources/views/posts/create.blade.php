@@ -13,6 +13,7 @@
                         type="text"
                         class="border border-gray-400 p-2 w-full"
                         name="title" id="title"
+                        value="{{ old('title') }}"
                     >
 
                     @error('title')
@@ -29,6 +30,7 @@
                         type="text"
                         class="border border-gray-400 p-2 w-full"
                         name="slug" id="slug"
+                        value="{{ old('slug') }}"
                     >
 
                     @error('slug')
@@ -46,7 +48,7 @@
                         name="excerpt"
                         id="excerpt"
                         required
-                    ></textarea>
+                    >{{ old('excerpt') }}</textarea>
 
                     @error('excerpt')
                         <span class="text-sm text-red">{{ $message }}</span>
@@ -63,7 +65,7 @@
                         name="body"
                         id="body"
                         required
-                    ></textarea>
+                    >{{ old('body') }}</textarea>
 
                     @error('body')
                         <span class="text-sm text-red">{{ $message }}</span>
@@ -81,7 +83,10 @@
                         @endphp
 
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ ucwords($category->name) }}</option>
+                            <option
+                                value="{{ $category->id }}"
+                                {{ old('category_id') == $category->id ? 'selected' : ''}}
+                            >{{ ucwords($category->name) }}</option>
                         @endforeach
                     </select>
 
