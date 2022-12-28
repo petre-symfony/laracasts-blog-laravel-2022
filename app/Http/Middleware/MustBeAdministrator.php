@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class MustBeAdministrator {
     /**
@@ -14,6 +15,11 @@ class MustBeAdministrator {
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next) {
+
+        if (auth()->user()?->username !== 'Gigiciuca') {
+            abort(Response::HTTP_FORBIDDEN);
+        }
+
         return $next($request);
     }
 }
