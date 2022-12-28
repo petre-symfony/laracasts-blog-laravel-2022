@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller {
    public function index(){
@@ -26,10 +27,21 @@ class PostController extends Controller {
    }
 
    public function create(){
-       if (auth()->guest()){
-            return Response::HTTP_FORBIDDEN;
-       }
-
        return view('posts.create');
+   }
+
+   public function store(){
+       $attributes = request()->validate([
+           'title' => 'required',
+           'excerpt' => 'required',
+           'body' => 'required',
+           'category_id' => ['required', Rule::exists('categories', 'id')]
+       ]);
+
+       $attributes['user_id'] = auth()->id();
+
+       Post::create($attributes);
+
+       return redirect('/');
    }
 }
