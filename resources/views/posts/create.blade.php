@@ -1,102 +1,102 @@
 <x-layout>
-    <section class="px-6 py-6">
-        <x-panel class="max-w-sm mx-auto">
-            <form action="/admin/posts" method="post">
-                @csrf
+    <section class="py-6 max-w-md mx-auto">
+        <h1 class="text-lg font-bold mb-6">Publish New Post</h1>
 
-                <div class="mb-6">
-                    <label for="title" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Title
-                    </label>
+        <form action="/admin/posts" method="post">
+            @csrf
 
-                    <input
-                        type="text"
-                        class="border border-gray-400 p-2 w-full"
-                        name="title" id="title"
-                        value="{{ old('title') }}"
-                    >
+            <div class="mb-6">
+                <label for="title" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                    Title
+                </label>
 
-                    @error('title')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
+                <input
+                    type="text"
+                    class="border border-gray-400 p-2 w-full"
+                    name="title" id="title"
+                    value="{{ old('title') }}"
+                >
 
-                <div class="mb-6">
-                    <label for="slug" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Slug
-                    </label>
+                @error('title')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-                    <input
-                        type="text"
-                        class="border border-gray-400 p-2 w-full"
-                        name="slug" id="slug"
-                        value="{{ old('slug') }}"
-                    >
+            <div class="mb-6">
+                <label for="slug" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                    Slug
+                </label>
 
-                    @error('slug')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
+                <input
+                    type="text"
+                    class="border border-gray-400 p-2 w-full"
+                    name="slug" id="slug"
+                    value="{{ old('slug') }}"
+                >
 
-                <div class="mb-6">
-                    <label for="excerpt" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Excerpt
-                    </label>
+                @error('slug')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-                    <textarea
-                        class="border border-gray-400 p-2 w-full"
-                        name="excerpt"
-                        id="excerpt"
-                        required
-                    >{{ old('excerpt') }}</textarea>
+            <div class="mb-6">
+                <label for="excerpt" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                    Excerpt
+                </label>
 
-                    @error('excerpt')
-                        <span class="text-sm text-red">{{ $message }}</span>
-                    @enderror
-                </div>
+                <textarea
+                    class="border border-gray-400 p-2 w-full"
+                    name="excerpt"
+                    id="excerpt"
+                    required
+                >{{ old('excerpt') }}</textarea>
 
-                <div class="mb-6">
-                    <label for="body" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Body
-                    </label>
+                @error('excerpt')
+                    <span class="text-sm text-red">{{ $message }}</span>
+                @enderror
+            </div>
 
-                    <textarea
-                        class="border border-gray-400 p-2 w-full"
-                        name="body"
-                        id="body"
-                        required
-                    >{{ old('body') }}</textarea>
+            <div class="mb-6">
+                <label for="body" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                    Body
+                </label>
 
-                    @error('body')
-                        <span class="text-sm text-red">{{ $message }}</span>
-                    @enderror
-                </div>
+                <textarea
+                    class="border border-gray-400 p-2 w-full"
+                    name="body"
+                    id="body"
+                    required
+                >{{ old('body') }}</textarea>
 
-                <div class="mb-6">
-                    <label for="category_id" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Category
-                    </label>
+                @error('body')
+                    <span class="text-sm text-red">{{ $message }}</span>
+                @enderror
+            </div>
 
-                    <select name="category_id" id="category_id">
-                        @php
-                            $categories = \App\Models\Category::all()
-                        @endphp
+            <div class="mb-6">
+                <label for="category_id" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                    Category
+                </label>
 
-                        @foreach($categories as $category)
-                            <option
-                                value="{{ $category->id }}"
-                                {{ old('category_id') == $category->id ? 'selected' : ''}}
-                            >{{ ucwords($category->name) }}</option>
-                        @endforeach
-                    </select>
+                <select name="category_id" id="category_id">
+                    @php
+                        $categories = \App\Models\Category::all()
+                    @endphp
 
-                    @error('category')
-                        <span class="text-sm text-red">{{ $message }}</span>
-                    @enderror
-                </div>
+                    @foreach($categories as $category)
+                        <option
+                            value="{{ $category->id }}"
+                            {{ old('category_id') == $category->id ? 'selected' : ''}}
+                        >{{ ucwords($category->name) }}</option>
+                    @endforeach
+                </select>
 
-                <x-submit-button>Publish</x-submit-button>
-            </form>
-        </x-panel>
+                @error('category')
+                    <span class="text-sm text-red">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <x-submit-button>Publish</x-submit-button>
+        </form>
     </section>
 </x-layout>
