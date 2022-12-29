@@ -1,6 +1,6 @@
 @props(['name'])
 
-<div class="mb-6">
+<x-form.field>
     <x-form.label name="{{ $name }}"></x-form.label>
 
     <textarea
@@ -11,4 +11,4 @@
     >{{ old($name) }}</textarea>
 
     <x-form.error name="{{ $name }}"></x-form.error>
-</div>
+</x-form.field>
