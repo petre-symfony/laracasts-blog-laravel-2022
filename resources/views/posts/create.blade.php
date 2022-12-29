@@ -11,23 +11,8 @@
 
             <x-form.input name="thumbnail" type="file"></x-form.input>
 
+            <x-form.textarea name="excerpt"></x-form.textarea>
 
-            <div class="mb-6">
-                <label for="excerpt" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                    Excerpt
-                </label>
-
-                <textarea
-                    class="border border-gray-400 p-2 w-full"
-                    name="excerpt"
-                    id="excerpt"
-                    required
-                >{{ old('excerpt') }}</textarea>
-
-                @error('excerpt')
-                    <span class="text-sm text-red">{{ $message }}</span>
-                @enderror
-            </div>
 
             <div class="mb-6">
                 <label for="body" class="block mb-2 uppercase font-bold text-xs text-gray-700">
