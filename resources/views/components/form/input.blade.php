@@ -1,9 +1,7 @@
 @props(['name', 'type' => 'text'])
 
 <div class="mb-6">
-    <label for="{{ $name }}" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-        {{ ucwords($name) }}
-    </label>
+    <x-form.label name="{{ $name }}"></x-form.label>
 
     <input
         type="{{ $type }}"
@@ -12,7 +10,5 @@
         value="{{ old($name) }}"
     >
 
-    @error($name)
-        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-    @enderror
+    <x-form.error name="{{ $name }}"></x-form.error>
 </div>

@@ -13,23 +13,7 @@
 
             <x-form.textarea name="excerpt"></x-form.textarea>
 
-
-            <div class="mb-6">
-                <label for="body" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                    Body
-                </label>
-
-                <textarea
-                    class="border border-gray-400 p-2 w-full"
-                    name="body"
-                    id="body"
-                    required
-                >{{ old('body') }}</textarea>
-
-                @error('body')
-                    <span class="text-sm text-red">{{ $message }}</span>
-                @enderror
-            </div>
+            <x-form.textarea name="body"></x-form.textarea>
 
             <div class="mb-6">
                 <label for="category_id" class="block mb-2 uppercase font-bold text-xs text-gray-700">
