@@ -15,10 +15,8 @@
 
             <x-form.textarea name="body"></x-form.textarea>
 
-            <div class="mb-6">
-                <label for="category_id" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                    Category
-                </label>
+            <x-form.field>
+                <x-form.label name="category"></x-form.label>
 
                 <select name="category_id" id="category_id">
                     @php
@@ -33,12 +31,10 @@
                     @endforeach
                 </select>
 
-                @error('category')
-                    <span class="text-sm text-red">{{ $message }}</span>
-                @enderror
-            </div>
+                <x-form.error name="category"></x-form.error>
+            </x-form.field>
 
-            <x-submit-button>Publish</x-submit-button>
+            <x-form.button>Publish</x-form.button>
         </form>
     </section>
 </x-layout>
