@@ -4,7 +4,7 @@
     <h1 class="text-lg font-bold mb-6">{{ $heading }}</h1>
 
     <div class="flex">
-        <aside>
+        <aside class="w-48">
             <ul>
                 <li>
                     <a href="/admin/posts/create">New Post</a>
@@ -12,7 +12,7 @@
             </ul>
         </aside>
 
-        <main>
+        <main class="flex-1">
             <x-panel>
                 {{ $slot }}
             </x-panel>
