@@ -9,7 +9,7 @@
 
                     <x-form.input type="email" name="email" autocomplete="username"></x-form.input>
 
-                    <x-form.input type="password" name="password"></x-form.input>
+                    <x-form.input type="password" name="password"  autocomplete="new-password"></x-form.input>
 
                     <x-form.button>Log In</x-form.button>
                 </form>
