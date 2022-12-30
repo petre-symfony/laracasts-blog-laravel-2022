@@ -41,7 +41,7 @@
                             <button type="submit">Log Out</button>
                         </form>
                     </x-dropdown>
-                    
+
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
