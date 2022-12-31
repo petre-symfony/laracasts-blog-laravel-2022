@@ -18,11 +18,11 @@ class AdminPostController extends Controller {
     }
 
     public function store(){
-        $attributes = $this->validatePost();
 
-        $attributes['user_id'] = auth()->id();
-
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        $attributes = array_merge($this->validatePost(), [
+            'user_id' => auth()->id(),
+            'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+        ]);
 
         Post::create($attributes);
 
