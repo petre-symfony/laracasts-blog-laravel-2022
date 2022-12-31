@@ -40,12 +40,15 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 //group admin
 Route::middleware('can:admin')->group(function(){
+    Route::resource('admin/posts', AdminPostController::class);
+    /*
     Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware('can:admin');
     Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('can:admin');
     Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware('can:admin');
     Route::post('admin/posts', [AdminPostController::class, 'store'])->middleware('admin');
     Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware('can:admin');
     Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->middleware('can:admin');
+    */
 });
 
 
