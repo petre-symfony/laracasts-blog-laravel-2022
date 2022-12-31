@@ -18,7 +18,7 @@ class AdminPostController extends Controller {
     }
 
     public function store(){
-        $attributes = $this->validatePost(new Post());
+        $attributes = $this->validatePost();
 
         $attributes['user_id'] = auth()->id();
 
@@ -53,7 +53,9 @@ class AdminPostController extends Controller {
         return back()->with('success', 'Post was deleted');
     }
 
-    protected function validatePost(Post $post): array{
+    protected function validatePost(?Post $post = null): array{
+       $post ??= new Post();
+
        return request()->validate([
             'title' => 'required',
             'thumbnail' => $post->exists ? 'image' : 'required|image',
