@@ -11,8 +11,7 @@ use Illuminate\Validation\Rule;
 
 class PostController extends Controller {
    public function index(){
-        ddd(Gate::allows('admin'));
-        ddd(request()->user()->can('admin'));
+        $this->authorize('admin');
        /*
        return view('posts.index', [
            'posts' => Post::latest()
