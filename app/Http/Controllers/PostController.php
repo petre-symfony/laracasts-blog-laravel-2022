@@ -11,8 +11,6 @@ use Illuminate\Validation\Rule;
 
 class PostController extends Controller {
    public function index(){
-        $this->authorize('admin');
-       /*
        return view('posts.index', [
            'posts' => Post::latest()
                ->filter(request(['search', 'category', 'author']))
@@ -20,7 +18,6 @@ class PostController extends Controller {
                ->withQueryString()
 
        ]);
-       */
    }
 
    public function show(Post $post){
