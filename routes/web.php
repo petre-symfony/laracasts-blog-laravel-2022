@@ -40,7 +40,7 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 //group admin
 Route::middleware('can:admin')->group(function(){
-    Route::resource('admin/posts', AdminPostController::class);
+    Route::resource('admin/posts', AdminPostController::class)->except('show');
     /*
     Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware('can:admin');
     Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('can:admin');
