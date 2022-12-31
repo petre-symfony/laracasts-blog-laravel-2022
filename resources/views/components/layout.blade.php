@@ -27,11 +27,11 @@
                             <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}</button>
                         </x-slot>
 
-                        @if (auth()->user()->can('admin'))
+                        @can('admin')
                             <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
                             <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
-                        @endif
-                        
+                        @endcan
+
                         <x-dropdown-item
                             href="#"
                             x-data="{}"
